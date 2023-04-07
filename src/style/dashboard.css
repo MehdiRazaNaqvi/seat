@@ -1,0 +1,182 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+
+.dashboard_parent {
+    width: 100%;
+    height: 100vh;
+
+
+
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+
+
+
+
+.dashboard_base {
+    width: 90%;
+    height: 80vh;
+
+
+
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    place-items: center;
+
+    overflow: hidden;
+
+
+
+}
+
+
+
+.quarter {
+    width: 100%;
+    height: 100%;
+    /* background-color: green; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+
+
+.quarter1 {
+    gap: 1rem;
+    /* background-color: blue; */
+}
+
+
+.quarter2 {
+    /* background-color: blue; */
+}
+
+.quarter3 {
+    /* background-color: pink; */
+}
+
+
+
+
+
+
+
+
+
+.actual_bar {
+    /* background-color: rgb(255, 235, 198); */
+
+}
+
+
+
+.dashboard_stats {
+    width: 90%;
+    height: 15vh;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    place-items: center;
+
+    /* background-color: red; */
+
+    gap: 1rem;
+}
+
+
+
+
+.stats {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    box-shadow: 5px 2px 2px 2px rgb(240, 240, 240);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.stats1 {
+    background-color: rgb(220, 241, 220);
+}
+
+.stats2 {
+    background-color: rgb(254, 237, 255);
+}
+
+
+.stats-heading {
+    font-size: 1.3rem;
+    /* background-color: red; */
+    height: 35%;
+    width: 100%;
+
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+
+    font-weight: 200;
+    color: rgb(65, 65, 65);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.stats-num {
+    font-size: 1.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* background-color: pink; */
+    height: 35%;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.stats1 .stats-num {
+    color: green;
+}
+
+.stats2 .stats-num {
+    color: orange;
+}
+
+
+
+
+
+
+.quarter1_left,
+.quarter1_right {
+
+    width: 50%;
+    height: 100%;
+    /* background-color: pink; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
