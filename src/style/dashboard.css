@@ -21,23 +21,29 @@ body {
 
 
 
+.dashboard_title_bar {
+
+    width: 90%;
+    height: 5vh;
+    background-color: red;
+
+
+}
 
 
 .dashboard_base {
     width: 90%;
-    height: 80vh;
+    height: 40vh;
 
 
 
 
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     place-items: center;
 
     overflow: hidden;
-
-
 
 }
 
@@ -46,7 +52,7 @@ body {
 .quarter {
     width: 100%;
     height: 100%;
-    /* background-color: green; */
+
 
     display: flex;
     align-items: center;
@@ -56,33 +62,6 @@ body {
 }
 
 
-
-.quarter1 {
-    gap: 1rem;
-    /* background-color: blue; */
-}
-
-
-.quarter2 {
-    /* background-color: blue; */
-}
-
-.quarter3 {
-    /* background-color: pink; */
-}
-
-
-
-
-
-
-
-
-
-.actual_bar {
-    /* background-color: rgb(255, 235, 198); */
-
-}
 
 
 
@@ -180,3 +159,18 @@ body {
     justify-content: center;
 
 }
+
+
+.dashboard_base_row2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+
+
+
+
+
+
+
+

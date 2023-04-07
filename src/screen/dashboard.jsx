@@ -14,6 +14,7 @@ import Chart from 'chart.js/auto';
 
 
 
+
 const Dashboard = () => {
 
 
@@ -71,7 +72,14 @@ const Dashboard = () => {
 
         <span className='dashboard_parent'>
 
+            {/* <div className="dashboard_title_bar">
+                SYED MEHDI RAZA NAQVI
+
+            </div> */}
+
+
             <div className='dashboard_base'>
+
 
 
                 <span className="quarter quarter1">
@@ -79,8 +87,7 @@ const Dashboard = () => {
 
 
 
-
-                    {/* <Line
+                    <Line
                         className="actual_bar"
                         data={userdata}
 
@@ -90,47 +97,29 @@ const Dashboard = () => {
                         options={{ maintainAspectRatio: false, plugins: {} }}
 
 
-                    /> */}
-
-
-
-                    <span className='quarter1_left'>
-
-                        <Line
-                            className="actual_bar"
-                            data={userdata}
-
-
-                            height='3rem'
-                            width='5rem'
-                            options={{ maintainAspectRatio: false, plugins: {} }}
-
-
-                        />
-
-                    </span>
-
-                    <span className='quarter1_right'>
-
-
-                        <Line
-                            className="actual_bar"
-                            data={userdata}
-
-
-                            height='3rem'
-                            width='5rem'
-                            options={{ maintainAspectRatio: false, plugins: {} }}
-
-
-                        />
-                    </span>
+                    />
 
 
 
 
 
 
+                </span>
+
+                <span className="quarter quarter1">
+
+
+                    <Line
+                        className="actual_bar"
+                        data={userdata}
+
+
+                        height='3rem'
+                        width='10rem'
+                        options={{ maintainAspectRatio: false, plugins: {} }}
+
+
+                    />
 
 
 
@@ -153,6 +142,13 @@ const Dashboard = () => {
 
                     />
                 </span>
+
+
+
+            </div>
+
+
+            <div className='dashboard_base dashboard_base_row2'>
 
 
                 <span className="quarter quarter3">
@@ -178,7 +174,12 @@ const Dashboard = () => {
                     />
                 </span>
 
+
+
             </div>
+
+
+
 
 
             <span className="dashboard_stats">

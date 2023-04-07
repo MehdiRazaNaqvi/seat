@@ -1,0 +1,225 @@
+{
+  "ShiftName": "AShift1",
+  "LineName": "RH",
+  "PlannedVsActual": {
+    "2023-03-02T05:30:00": {
+      "Planned": 26,
+      "Actual": 10
+    },
+    "2023-03-02T06:00:00": {
+      "Planned": 53,
+      "Actual": 25
+    },
+    "2023-03-02T06:30:00": {
+      "Planned": 80,
+      "Actual": 30
+    },
+    "2023-03-02T07:00:00": {
+      "Planned": 107,
+      "Actual": 29
+    },
+    "2023-03-02T07:30:00": {
+      "Planned": 134,
+      "Actual": 5
+    },
+    "2023-03-02T08:00:00": {
+      "Planned": 161,
+      "Actual": 20
+    },
+    "2023-03-02T08:30:00": {
+      "Planned": 188,
+      "Actual": 27
+    },
+    "2023-03-02T09:00:00": {
+      "Planned": 214,
+      "Actual": 25
+    },
+    "2023-03-02T09:30:00": {
+      "Planned": 241,
+      "Actual": 20
+    },
+    "2023-03-02T10:00:00": {
+      "Planned": 268,
+      "Actual": 21
+    },
+    "2023-03-02T10:30:00": {
+      "Planned": 271,
+      "Actual": 3
+    }
+  },
+  "ReworkRejectActualTrend": {
+    "2023-03-02T05:30:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 10
+    },
+    "2023-03-02T06:00:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 25
+    },
+    "2023-03-02T06:30:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 30
+    },
+    "2023-03-02T07:00:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 29
+    },
+    "2023-03-02T07:30:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 5
+    },
+    "2023-03-02T08:00:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 20
+    },
+    "2023-03-02T08:30:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 27
+    },
+    "2023-03-02T09:00:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 25
+    },
+    "2023-03-02T09:30:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 20
+    },
+    "2023-03-02T10:00:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 21
+    },
+    "2023-03-02T10:30:00": {
+      "Rework": 0,
+      "Reject": 0,
+      "Actual": 3
+    }
+  },
+  "ReworkPie": [
+    {
+      "Key": "Wrinkle",
+      "Value": 7
+    },
+    {
+      "Key": "CRingLoose",
+      "Value": 0
+    },
+    {
+      "Key": "ExtraThread",
+      "Value": 0
+    },
+    {
+      "Key": "ExtraPart",
+      "Value": 1
+    },
+    {
+      "Key": "HRMovement",
+      "Value": 1
+    },
+    {
+      "Key": "HRSupport",
+      "Value": 0
+    },
+    {
+      "Key": "SlideFunction",
+      "Value": 25
+    },
+    {
+      "Key": "ReclineFunction",
+      "Value": 25
+    },
+    {
+      "Key": "InnerShield",
+      "Value": 25
+    },
+    {
+      "Key": "OuterShield",
+      "Value": 25
+    },
+    {
+      "Key": "LifterFunction",
+      "Value": 25
+    },
+    {
+      "Key": "StepByStepSlideCheck",
+      "Value": 25
+    },
+    {
+      "Key": "SlideAndReclineNoise",
+      "Value": 25
+    },
+    {
+      "Key": "BackPocketArea",
+      "Value": 0
+    },
+    {
+      "Key": "InsidePartVisible",
+      "Value": 4
+    },
+    {
+      "Key": "RailProtector",
+      "Value": 0
+    },
+    {
+      "Key": "CarpetBand",
+      "Value": 0
+    },
+    {
+      "Key": "WireHarness",
+      "Value": 7
+    }
+  ],
+  "ReworkZone": {
+    "1": 15.0,
+    "2": 0.0,
+    "3": 20.0,
+    "4": 0.0,
+    "5": 35.0,
+    "6": 10.0,
+    "7": 10.0,
+    "8": 5.0,
+    "9": 0.0,
+    "10": 5.0,
+    "11": 0.0,
+    "12": 0.0,
+    "13": 0.0,
+    "14": 0.0,
+    "15": 0.0,
+    "16": 0.0
+  },
+  "VariantBars": {
+    "1": 71,
+    "2": 9,
+    "3": 2,
+    "4": 30,
+    "5": 4,
+    "6": 11,
+    "7": 8,
+    "8": 20,
+    "9": 12,
+    "10": 7,
+    "11": 15,
+    "12": 7,
+    "13": 5,
+    "14": 6,
+    "15": 8,
+    "16": 0
+  },
+  "SummaryTable": {
+    "DirectOK": 215,
+    "RejectionRate": 0,
+    "ReworkRate": 0,
+    "LineEfficiency": 12,
+    "Planned": 1743,
+    "Actual": 215
+  }
+}
