@@ -154,7 +154,9 @@ const Dashboard = () => {
                 <span className="quarter quarter3">
 
 
-                    3
+                    <img style={{margin:"0px" , paddding:"0px"}} className='seat_img' src="https://img-new.cgtrader.com/items/2134357/15ec4d9555/car-seat-3d-model-obj-mtl-fbx-blend.jpg" />
+                    <img style={{margin:"0px" , paddding:"0px"}} className='seat_img' src="https://img2.cgtrader.com/items/2134357/e981eb8d6f/car-seat-3d-model-obj-mtl-fbx-blend.jpg" />
+
 
                 </span>
 
