@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Bar, Pie, Line, Doughnut, Radar, PolarArea, Scatter, Bubble } from "react-chartjs-2";
 import "../style/dashboard.css"
@@ -9,7 +9,9 @@ import "../style/dashboard.css"
 
 
 import Chart from 'chart.js/auto';
-
+import data from "../config/rh.json"
+import rc from "../config/rc.json"
+import rb from "../config/rb.json"
 
 
 
@@ -18,35 +20,85 @@ import Chart from 'chart.js/auto';
 const Dashboard = () => {
 
 
+    const pieKeys = Object.keys(data.ReworkPie)
+    const pieValues = Object.values(data.ReworkPie)
 
 
-    const userdata = {
 
 
-        labels: ["Olivia", "Hemani", "Dell", "grocery"],
+    const Line2data = {
+
+
+        labels: ["", "", "", "", "", "", "", "", "", "", ""],
         // labels: count.charts_data.brands_names,
 
         datasets: [{
-            label: "brands", data: [2, 4, 6, 4], backgroundColor: ["orange", "lightsalmon", "lightgrey", "lightgreen"], barPercentage: 0.5,
+            label: "Actual", data: data.PlannedVsActual.actual, backgroundColor: "purple", barPercentage: 0.5,
             barThickness: 40,
+            borderColor: "purple",
+
+            tension: 0.4,
+
+        },
+
+        {
+            label: "Planned", data: data.PlannedVsActual.planned, backgroundColor: "skyblue", barPercentage: 0.5,
+            barThickness: 40,
+            borderColor: "skyblue",
 
             tension: 0.4,
 
         }]
     }
 
+    const Line3data = {
+
+
+        labels: ["", "", "", "", "", "", "", "", "", "", ""],
+        // labels: count.charts_data.brands_names,
+
+        datasets: [{
+            label: "Rework", data: data.ReworkRejectActualTrend.rework, backgroundColor: "purple", barPercentage: 0.5,
+            barThickness: 40,
+            borderColor: "purple",
+
+            tension: 0.4,
+
+        },
+
+        {
+            label: "Reject", data: data.ReworkRejectActualTrend.reject, backgroundColor: "skyblue", barPercentage: 0.5,
+            barThickness: 40,
+            borderColor: "skyblue",
+
+            tension: 0.4,
+
+        },
+        {
+            label: "Actual", data: data.ReworkRejectActualTrend.actual, backgroundColor: "skyblue", barPercentage: 0.5,
+            barThickness: 40,
+            borderColor: "skyblue",
+
+            tension: 0.4,
+
+        },
+
+        ]
+    }
+
 
     const barData = {
 
 
-        labels: ["Olivia", "Hemani", "Dell", "grocery"],
+        labels: Object.keys(data.ReworkZone),
         // labels: count.charts_data.brands_names,
 
         datasets: [{
-            label: "brands", data: [2, 4, 6, 4], backgroundColor: ["skyblue"], barPercentage: 0.5,
-            barThickness: 40,
 
-            tension: 0.4,
+            label: "Product by Varient", data: Object.values(data.ReworkZone), backgroundColor: ["skyblue"], barPercentage: 0.5,
+            barThickness: 30,
+
+            tension: 0.1,
 
         }]
     }
@@ -56,10 +108,10 @@ const Dashboard = () => {
     const [userdata1, setuserdata1] = useState({
 
 
-        labels: [`mehdi`, "raza", "syed", "naqvi"],
+        labels: pieKeys,
 
         datasets: [{
-            label: "brands", data: [3, 5, 6, 8], backgroundColor: ["orange", "rgb(255, 185, 56)", "rgb(255, 209, 124)", "rgb(255, 235, 198)"], barPercentage: 0.5,
+            data: pieValues, backgroundColor: ["orange", "rgb(255, 185, 56)", "rgb(255, 209, 124)", "rgb(255, 235, 198)"], barPercentage: 0.5,
             barThickness: 20,
 
             tension: 0.4,
@@ -68,14 +120,50 @@ const Dashboard = () => {
     })
 
 
+    const [currentData, setCurrentData] = useState({})
+
+    let count = 0
+
+    const jsonFiles = ["jsonFile1", "jsonFile2", "jsonFile3", "jsonFile4", "jsonFile5"];
+
+    useEffect(() => {
+
+
+        setInterval(() => switchToJsonFile(), 5000)
+
+    }, [])
+
+
+
+    const switchToJsonFile = () => {
+
+        setCurrentData(jsonFiles[count])
+
+        if (count > 4) {
+            count = 0
+        }
+        else {
+            count = count + 1
+        }
+
+
+    }
+
+
+
+
     return (
 
         <span className='dashboard_parent'>
 
-            {/* <div className="dashboard_title_bar">
-                SYED MEHDI RAZA NAQVI
-
-            </div> */}
+            <div className="dashboard_title_bar">
+                <span className='title_bar_head'>05YA</span>
+                <span className='title_bar_head'>SEAT ASSEMBLY LINE - FR - RH</span>
+                <span className='title_bar_date_box'>
+                    <span className='title_bar_date'>06-02-2023</span>
+                    <span className='title_bar_date'>Shift : A</span>
+                </span>
+            </div>
 
 
             <div className='dashboard_base'>
@@ -84,22 +172,16 @@ const Dashboard = () => {
 
                 <span className="quarter quarter1">
 
-
-
-
                     <Line
                         className="actual_bar"
-                        data={userdata}
+                        data={Line2data}
 
 
                         height='3rem'
                         width='5rem'
                         options={{ maintainAspectRatio: false, plugins: {} }}
 
-
                     />
-
-
 
 
 
@@ -111,7 +193,7 @@ const Dashboard = () => {
 
                     <Line
                         className="actual_bar"
-                        data={userdata}
+                        data={Line3data}
 
 
                         height='3rem'
@@ -137,7 +219,7 @@ const Dashboard = () => {
 
                         height='3rem'
                         width='5rem'
-                        options={{ maintainAspectRatio: false, plugins: {} }}
+                        options={{ maintainAspectRatio: false, plugins: { legend: { display: false } } }}
 
 
                     />
@@ -154,14 +236,15 @@ const Dashboard = () => {
                 <span className="quarter quarter3">
 
 
-                    <img style={{margin:"0px" , paddding:"0px"}} className='seat_img' src="https://img-new.cgtrader.com/items/2134357/15ec4d9555/car-seat-3d-model-obj-mtl-fbx-blend.jpg" />
-                    <img style={{margin:"0px" , paddding:"0px"}} className='seat_img' src="https://img2.cgtrader.com/items/2134357/e981eb8d6f/car-seat-3d-model-obj-mtl-fbx-blend.jpg" />
+                    <img className='seat_img' src="https://img-new.cgtrader.com/items/2134357/15ec4d9555/car-seat-3d-model-obj-mtl-fbx-blend.jpg" />
+                    <img className='seat_img' src="https://img2.cgtrader.com/items/2134357/e981eb8d6f/car-seat-3d-model-obj-mtl-fbx-blend.jpg" />
 
 
                 </span>
 
 
                 <span className="quarter quarter4">
+
                     <Bar
                         className="actual_bar"
                         data={barData}
@@ -174,6 +257,7 @@ const Dashboard = () => {
 
 
                     />
+
                 </span>
 
 
@@ -189,7 +273,7 @@ const Dashboard = () => {
                 <span className="stats stats1">
 
                     <span className='stats-heading'>Planned</span>
-                    <span className='stats-num'>100</span>
+                    <span className='stats-num'>{data.SummaryTable.Planned}</span>
 
                 </span>
 
@@ -197,32 +281,36 @@ const Dashboard = () => {
 
                 <span className="stats stats2">
                     <span className='stats-heading'>Actual</span>
-                    <span className='stats-num'>78</span>
+                    <span className='stats-num'>{data.SummaryTable.Actual}</span>
                 </span>
 
 
                 <span className="stats stats1">
 
                     <span className='stats-heading'>Direct-Ok</span>
-                    <span className='stats-num'>50</span>
+                    <span className='stats-num'>{data.SummaryTable.DirectOK}</span>
 
                 </span>
 
 
                 <span className="stats stats2">
                     <span className='stats-heading'>Rejection Rate</span>
-                    <span className='stats-num'>5%</span>
+                    <span className='stats-num'>{data.SummaryTable.RejectionRate} %</span>
                 </span>
+
+
 
                 <span className="stats stats1">
                     <span className='stats-heading'>Rework Rate</span>
-                    <span className='stats-num'>78%</span>
+                    <span className='stats-num'>{data.SummaryTable.ReworkRate} %</span>
                 </span>
+
+
 
                 <span className="stats stats2">
 
                     <span className='stats-heading'>Line Effeciency</span>
-                    <span className='stats-num'>78%</span>
+                    <span className='stats-num'>{data.SummaryTable.LineEfficiency} %</span>
 
                 </span>
 
