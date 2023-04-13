@@ -70,26 +70,145 @@
       3
     ]
   },
-  "ReworkPie": {
-    "Wrinkle": 7,
-    "CRingLoose": 0,
-    "ExtraThread": 0,
-    "ExtraPart": 1,
-    "HRMovement": 1,
-    "HRSupport": 0,
-    "SlideFunction": 25,
-    "ReclineFunction": 25,
-    "InnerShield": 25,
-    "OuterShield": 25,
-    "LifterFunction": 25,
-    "StepByStepSlideCheck": 25,
-    "SlideAndReclineNoise": 25,
-    "BackPocketArea": 0,
-    "InsidePartVisible": 4,
-    "RailProtector": 0,
-    "CarpetBand": 0,
-    "WireHarness": 7
-  },
+
+  "ReworkPie": [
+    {
+      "title": "Wrinkle",
+      "value": 15,
+      "color": "orange"
+    },
+    {
+      "title": "CRingLoose",
+      "value": 28,
+      "color": "rgb(255, 185, 56)"
+    },
+    {
+      "title": "ExtraThread",
+      "value": 16,
+      "color": "rgb(255, 209, 124)"
+    },
+    {
+      "title": "ExtraPart",
+      "value": 0,
+      "color": "rgb(255, 235, 198)"
+    },
+    {
+      "title": "HRMovement",
+      "value": 0,
+      "color": "orange"
+    },
+    {
+      "title": "SlideFunction",
+      "value": 0,
+      "color": "rgb(255, 185, 56)"
+    },
+    {
+      "title": "ReclineFunction",
+      "value": 0,
+      "color": "rgb(255, 209, 124)"
+    },
+    {
+      "title": "HRSupport",
+      "value": 22,
+      "color": "rgb(255, 235, 198)"
+    },
+    {
+      "title": "InnerShield",
+      "value": 21,
+      "color": "orange"
+    },
+    {
+      "title": "OuterShield",
+      "value": 6,
+      "color": "rgb(255, 185, 56)"
+    },
+    {
+      "title": "LifterFunction",
+      "value": 7,
+      "color": "rgb(255, 209, 124)"
+    },
+    {
+      "title": "StepByStepSlideCheck",
+      "value": 10,
+      "color": "rgb(255, 235, 198)"
+    },
+    {
+      "title": "SlideAndReclineNoise",
+      "value": 0,
+      "color": "orange"
+    },
+    {
+      "title": "BackPocketArea",
+      "value": 6,
+      "color": "rgb(255, 185, 56)"
+    },
+    {
+      "title": "InsidePartVisible",
+      "value": 0,
+      "color": "rgb(255, 209, 124)"
+    },
+    {
+      "title": "RailProtector",
+      "value": 0,
+      "color": "rgb(255, 235, 198)"
+    },
+    {
+      "title": "CarpetBand",
+      "value": 16,
+      "color": "orange"
+    },
+    {
+      "title": "WireHarness",
+      "value": 9,
+      "color": "rgb(255, 185, 56)"
+    }
+  ],
+   
+
+  "ReworkPieValues": [
+    23,
+    38,
+    6,
+    6,
+    3,
+    0,
+    11,
+    13,
+    12,
+    11,
+    16,
+    19,
+    20,
+    0,
+    6,
+    0,
+    0,
+    16
+  ],
+  "ReworkPieKeys": [
+    
+    "Wrinkle",
+    "CRingLoose",
+    "ExtraThread",
+    "ExtraPart",
+    "HRMovement",
+    "HRSupport",
+    "SlideFunction",
+    "ReclineFunction",
+    "InnerShield",
+    "OuterShield",
+    "LifterFunction",
+    "StepByStepSlideCheck",
+    "SlideAndReclineNoise",
+    "BackPocketArea",
+    "InsidePartVisible",
+    "RailProtector",
+    "CarpetBand",
+    "WireHarness"
+  ],
+
+  
+  
   "ReworkZone": {
     "1": 15.0,
     "2": 0.0,
@@ -128,8 +247,8 @@
   },
   "SummaryTable": {
     "DirectOK": 215,
-    "RejectionRate": 0,
-    "ReworkRate": 0,
+    "RejectionRate": 26,
+    "ReworkRate": 74,
     "LineEfficiency": 12,
     "Planned": 1743,
     "Actual": 215

@@ -3,15 +3,19 @@ import React, { useEffect, useState } from 'react';
 
 import { Bar, Pie, Line, Doughnut, Radar, PolarArea, Scatter, Bubble } from "react-chartjs-2";
 import "../style/dashboard.css"
-
+import { PieChart } from 'react-minimal-pie-chart';
 
 
 
 
 import Chart from 'chart.js/auto';
-import data from "../config/rh.json"
+
+import rh from "../config/rh.json"
 import rc from "../config/rc.json"
 import rb from "../config/rb.json"
+import lh from "../config/lh.json"
+
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
 
 
@@ -20,8 +24,14 @@ import rb from "../config/rb.json"
 const Dashboard = () => {
 
 
-    const pieKeys = Object.keys(data.ReworkPie)
-    const pieValues = Object.values(data.ReworkPie)
+    Chart.register(ArcElement, Tooltip, Legend);
+
+    const [data, setData] = useState({ ShiftName: "", PlannedVsActual: {}, ReworkPieValues: [], ReworkPieKeys: [], ReworkRejectActualTrend: {}, ReworkZone: {}, ShiftName: "", VariantBars: {}, SummaryTable: {} })
+    // const [data, setData] = useState(rb)
+
+
+
+
 
 
 
@@ -33,7 +43,7 @@ const Dashboard = () => {
         // labels: count.charts_data.brands_names,
 
         datasets: [{
-            label: "Actual", data: data.PlannedVsActual.actual, backgroundColor: "purple", barPercentage: 0.5,
+            label: "Actual", data: data?.PlannedVsActual?.actual, backgroundColor: "purple", barPercentage: 0.5,
             barThickness: 40,
             borderColor: "purple",
 
@@ -42,7 +52,7 @@ const Dashboard = () => {
         },
 
         {
-            label: "Planned", data: data.PlannedVsActual.planned, backgroundColor: "skyblue", barPercentage: 0.5,
+            label: "Planned", data: data.PlannedVsActual?.planned, backgroundColor: "skyblue", barPercentage: 0.5,
             barThickness: 40,
             borderColor: "skyblue",
 
@@ -58,7 +68,7 @@ const Dashboard = () => {
         // labels: count.charts_data.brands_names,
 
         datasets: [{
-            label: "Rework", data: data.ReworkRejectActualTrend.rework, backgroundColor: "purple", barPercentage: 0.5,
+            label: "Rework", data: data?.ReworkRejectActualTrend?.rework, backgroundColor: "purple", barPercentage: 0.5,
             barThickness: 40,
             borderColor: "purple",
 
@@ -67,7 +77,7 @@ const Dashboard = () => {
         },
 
         {
-            label: "Reject", data: data.ReworkRejectActualTrend.reject, backgroundColor: "skyblue", barPercentage: 0.5,
+            label: "Reject", data: data.ReworkRejectActualTrend?.reject, backgroundColor: "rgb(223, 246, 255)", barPercentage: 0.5,
             barThickness: 40,
             borderColor: "skyblue",
 
@@ -75,7 +85,7 @@ const Dashboard = () => {
 
         },
         {
-            label: "Actual", data: data.ReworkRejectActualTrend.actual, backgroundColor: "skyblue", barPercentage: 0.5,
+            label: "Actual", data: data.ReworkRejectActualTrend?.actual, backgroundColor: "skyblue", barPercentage: 0.5,
             barThickness: 40,
             borderColor: "skyblue",
 
@@ -90,13 +100,13 @@ const Dashboard = () => {
     const barData = {
 
 
-        labels: Object.keys(data.ReworkZone),
+        labels: Object.keys(data?.ReworkZone),
         // labels: count.charts_data.brands_names,
 
         datasets: [{
 
-            label: "Product by Varient", data: Object.values(data.ReworkZone), backgroundColor: ["skyblue"], barPercentage: 0.5,
-            barThickness: 30,
+            label: "Product by Varient", data: Object.values(data?.ReworkZone), backgroundColor: ["skyblue"], barPercentage: 0.5,
+            barThickness: 20,
 
             tension: 0.1,
 
@@ -104,15 +114,18 @@ const Dashboard = () => {
     }
 
 
+    const keys = data.ReworkPieKeys
+    const values = data.ReworkPieValues
 
+    
     const [userdata1, setuserdata1] = useState({
 
 
-        labels: pieKeys,
+        labels: values,
 
         datasets: [{
-            data: pieValues, backgroundColor: ["orange", "rgb(255, 185, 56)", "rgb(255, 209, 124)", "rgb(255, 235, 198)"], barPercentage: 0.5,
-            barThickness: 20,
+            data: keys, backgroundColor: ["orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange"], barPercentage: 0.5,
+            // barThickness: 20,
 
             tension: 0.4,
 
@@ -120,34 +133,40 @@ const Dashboard = () => {
     })
 
 
-    const [currentData, setCurrentData] = useState({})
+
 
     let count = 0
 
-    const jsonFiles = ["jsonFile1", "jsonFile2", "jsonFile3", "jsonFile4", "jsonFile5"];
+    const jsonFiles = [rh, rc, lh, rh];
 
     useEffect(() => {
 
 
         setInterval(() => switchToJsonFile(), 5000)
 
-    }, [])
+    }, [0])
 
+    console.log(data)
 
 
     const switchToJsonFile = () => {
 
-        setCurrentData(jsonFiles[count])
 
-        if (count > 4) {
-            count = 0
+
+        if (count > 3) {
+            return count = 0
         }
         else {
+            setData(jsonFiles[count])
+
             count = count + 1
         }
 
 
+
+
     }
+
 
 
 
@@ -158,10 +177,10 @@ const Dashboard = () => {
 
             <div className="dashboard_title_bar">
                 <span className='title_bar_head'>05YA</span>
-                <span className='title_bar_head'>SEAT ASSEMBLY LINE - FR - RH</span>
+                <span className='title_bar_head'>SEAT ASSEMBLY LINE - {data.LineName}</span>
                 <span className='title_bar_date_box'>
                     <span className='title_bar_date'>06-02-2023</span>
-                    <span className='title_bar_date'>Shift : A</span>
+                    <span className='title_bar_date'>{data.ShiftName}</span>
                 </span>
             </div>
 
@@ -212,6 +231,7 @@ const Dashboard = () => {
                 <span className="quarter quarter2">
 
                     <Pie
+
                         className="actual_bar"
                         data={userdata1}
 
@@ -219,10 +239,14 @@ const Dashboard = () => {
 
                         height='3rem'
                         width='5rem'
-                        options={{ maintainAspectRatio: false, plugins: { legend: { display: false } } }}
-
-
+                        options={{ maintainAspectRatio: false, plugins: {} }}
                     />
+
+                    {/* <PieChart
+                        style={{ width: '80%', height: "80%" }}
+                        data={data.ReworkPie}
+                    /> */}
+
                 </span>
 
 
