@@ -114,23 +114,21 @@ const Dashboard = () => {
     }
 
 
-    const keys = data.ReworkPieKeys
-    const values = data.ReworkPieValues
-
-    
-    const [userdata1, setuserdata1] = useState({
 
 
-        labels: values,
+    // const [userdata1, setuserdata1] = useState({
 
-        datasets: [{
-            data: keys, backgroundColor: ["orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange"], barPercentage: 0.5,
-            // barThickness: 20,
 
-            tension: 0.4,
+    //     labels: data.ReworkPieKeys,
 
-        }]
-    })
+    //     datasets: [{
+    //         data: data.ReworkPieValues, backgroundColor: ["orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange", "orange"], barPercentage: 0.5,
+    //         // barThickness: 20,
+
+    //         tension: 0.4,
+
+    //     }]
+    // })
 
 
 
@@ -142,11 +140,11 @@ const Dashboard = () => {
     useEffect(() => {
 
 
-        setInterval(() => switchToJsonFile(), 5000)
+        setInterval(() => switchToJsonFile(), 10000)
 
     }, [0])
 
-    console.log(data)
+
 
 
     const switchToJsonFile = () => {
@@ -176,12 +174,14 @@ const Dashboard = () => {
         <span className='dashboard_parent'>
 
             <div className="dashboard_title_bar">
-                <span className='title_bar_head'>05YA</span>
-                <span className='title_bar_head'>SEAT ASSEMBLY LINE - {data.LineName}</span>
-                <span className='title_bar_date_box'>
+                <span className='title_bar_head title_bar_subhead1'>05YA</span>
+                <span className='title_bar_head title_bar_mainhead'>SEAT ASSEMBLY LINE - {data.LineName}</span>
+
+                <span className='title_bar_date_box title_bar_subhead2'>
                     <span className='title_bar_date'>06-02-2023</span>
                     <span className='title_bar_date'>{data.ShiftName}</span>
                 </span>
+
             </div>
 
 
@@ -228,24 +228,33 @@ const Dashboard = () => {
 
 
 
-                <span className="quarter quarter2">
+                <span className="quarter quarter2 pie_quarter">
 
                     <Pie
 
                         className="actual_bar"
-                        data={userdata1}
+                        data={{
+
+                            labels: data.ReworkPieValues,
+                            datasets: [{
+                                data: data.ReworkPieValues, backgroundColor: ["orange", "rgb(255, 185, 56)", "rgb(255, 209, 124)", "rgb(255, 235, 198)"], barPercentage: 0.5,
+                                // barThickness: 20,
+
+                                tension: 0.4,
+
+                            }]
+
+                        }}
 
 
 
                         height='3rem'
                         width='5rem'
-                        options={{ maintainAspectRatio: false, plugins: {} }}
+                        options={{ maintainAspectRatio: false, plugins: { legend: { display: false } } }}
                     />
 
-                    {/* <PieChart
-                        style={{ width: '80%', height: "80%" }}
-                        data={data.ReworkPie}
-                    /> */}
+
+
 
                 </span>
 
@@ -277,7 +286,7 @@ const Dashboard = () => {
 
                         height='3rem'
                         width='5rem'
-                        options={{ maintainAspectRatio: false, plugins: {} }}
+                        options={{ maintainAspectRatio: false, plugins: { legend: { display: false } } }}
 
 
                     />
