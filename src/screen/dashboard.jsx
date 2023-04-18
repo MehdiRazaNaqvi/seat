@@ -5,7 +5,7 @@ import { Bar, Pie, Line, Doughnut, Radar, PolarArea, Scatter, Bubble } from "rea
 import "../style/dashboard.css"
 import { PieChart } from 'react-minimal-pie-chart';
 
-
+import { Pie3D } from 'react-pie3d'
 
 
 import Chart from 'chart.js/auto';
@@ -26,8 +26,8 @@ const Dashboard = () => {
 
     Chart.register(ArcElement, Tooltip, Legend);
 
-    const [data, setData] = useState({ ShiftName: "", PlannedVsActual: {}, ReworkPieValues: [], ReworkPieKeys: [], ReworkRejectActualTrend: {}, ReworkZone: {}, ShiftName: "", VariantBars: {}, SummaryTable: {} })
-    // const [data, setData] = useState(rb)
+    // const [data, setData] = useState({ ShiftName: "", PlannedVsActual: {}, ReworkPieValues: [], ReworkPieKeys: [], ReworkRejectActualTrend: {}, ReworkZone: {}, ShiftName: "", VariantBars: {}, SummaryTable: {} })
+    const [data, setData] = useState(rb)
 
 
 
@@ -140,7 +140,7 @@ const Dashboard = () => {
     useEffect(() => {
 
 
-        setInterval(() => switchToJsonFile(), 10000)
+        // setInterval(() => switchToJsonFile(), 10000) 
 
     }, [0])
 
@@ -173,8 +173,9 @@ const Dashboard = () => {
 
         <span className='dashboard_parent'>
 
+
             <div className="dashboard_title_bar">
-                <span className='title_bar_head title_bar_subhead1'>05YA</span>
+                <span className='title_bar_date title_bar_subhead1'>05YA</span>
                 <span className='title_bar_head title_bar_mainhead'>SEAT ASSEMBLY LINE - {data.LineName}</span>
 
                 <span className='title_bar_date_box title_bar_subhead2'>
@@ -230,7 +231,7 @@ const Dashboard = () => {
 
                 <span className="quarter quarter2 pie_quarter">
 
-                    <Pie
+                    {/* <Pie
 
                         className="actual_bar"
                         data={{
@@ -251,8 +252,11 @@ const Dashboard = () => {
                         height='3rem'
                         width='5rem'
                         options={{ maintainAspectRatio: false, plugins: { legend: { display: false } } }}
-                    />
+                    /> */}
 
+
+
+                    <Pie3D config={{ moveDistance: 0.35, showLabels: true, showTooltips: true, textSize: 12, showLabelPercentage: false }} data={data.ReworkPie} />
 
 
 
@@ -296,9 +300,6 @@ const Dashboard = () => {
 
 
             </div>
-
-
-
 
 
             <span className="dashboard_stats">
@@ -356,6 +357,7 @@ const Dashboard = () => {
 
 
             </span>
+
 
 
         </span>

@@ -72,92 +72,92 @@
   },
   "ReworkPie": [
     {
-      "title": "Wrinkle",
+      "label": "Wrinkle",
       "value": 23,
       "color": "orange"
     },
     {
-      "title": "CRingLoose",
+      "label": "CRingLoose",
       "value": 38,
       "color": "rgb(255, 185, 56)"
     },
     {
-      "title": "ExtraThread",
+      "label": "ExtraThread",
       "value": 6,
       "color": "rgb(255, 209, 124)"
     },
     {
-      "title": "ExtraPart",
+      "label": "ExtraPart",
       "value": 3,
       "color": "rgb(255, 235, 198)"
     },
     {
-      "title": "HRMovement",
+      "label": "HRMovement",
       "value": 0,
       "color": "orange"
     },
     {
-      "title": "SlideFunction",
+      "label": "SlideFunction",
       "value": 11,
       "color": "rgb(255, 185, 56)"
     },
     {
-      "title": "ReclineFunction",
+      "label": "ReclineFunction",
       "value": 13,
       "color": "rgb(255, 209, 124)"
     },
     {
-      "title": "HRSupport",
+      "label": "HRSupport",
       "value": 12,
       "color": "rgb(255, 235, 198)"
     },
     {
-      "title": "InnerShield",
+      "label": "InnerShield",
       "value": 11,
       "color": "orange"
     },
     {
-      "title": "OuterShield",
+      "label": "OuterShield",
       "value": 16,
       "color": "rgb(255, 185, 56)"
     },
     {
-      "title": "LifterFunction",
+      "label": "LifterFunction",
       "value": 19,
       "color": "rgb(255, 209, 124)"
     },
     {
-      "title": "StepByStepSlideCheck",
+      "label": "StepByStepSlideCheck",
       "value": 20,
       "color": "rgb(255, 235, 198)"
     },
     {
-      "title": "SlideAndReclineNoise",
+      "label": "SlideAndReclineNoise",
       "value": 0,
       "color": "orange"
     },
     {
-      "title": "BackPocketArea",
+      "label": "BackPocketArea",
       "value": 6,
       "color": "rgb(255, 185, 56)"
     },
     {
-      "title": "InsidePartVisible",
+      "label": "InsidePartVisible",
       "value": 0,
       "color": "rgb(255, 209, 124)"
     },
     {
-      "title": "RailProtector",
+      "label": "RailProtector",
       "value": 0,
       "color": "rgb(255, 235, 198)"
     },
     {
-      "title": "CarpetBand",
+      "label": "CarpetBand",
       "value": 16,
       "color": "orange"
     },
     {
-      "title": "WireHarness",
+      "label": "WireHarness",
       "value": 9,
       "color": "rgb(255, 185, 56)"
     }
